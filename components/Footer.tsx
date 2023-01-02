@@ -1,9 +1,8 @@
-import styles from "../styles/Footer.module.css";
 const Footer = () => {
   return (
     <footer>
-      <div className={styles.inner}>
-        <div className={styles.footer__content}>
+      <div className="mx-auto max-w-screen-md justify-between py-2">
+        <div className="border-t border-violet-200">
           <p>&copy; {new Date().getFullYear().toString()} by Alex Kalinin</p>
         </div>
       </div>
