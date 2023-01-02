@@ -1,7 +1,7 @@
 import Link from "next/link";
-import menuItems from "../menuItems";
 
 import styles from "../styles/Header.module.css";
+const menuItems = [{ label: `Home`, url: `/` }];
 
 const Header = () => {
   return (
