@@ -1,14 +1,12 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-import styles from "../styles/Layout.module.css";
-
 const Layout = ({ children }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.inner__wrapper}>
+    <div className="flex min-h-screen flex-col">
+      <div className="grow">
         <Header />
-        <main className={styles.content}>{children}</main>
+        <main className="mx-auto max-w-2xl py-16 px-4">{children}</main>
       </div>
       <Footer />
     </div>
