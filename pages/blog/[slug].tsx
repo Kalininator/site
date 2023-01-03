@@ -4,16 +4,14 @@ import MDXComponents from "../../components/MdxComponents";
 import { getPostDir, getFileBySlug } from "../../utils/mdx";
 import { parseISO, format } from "date-fns";
 
-import styles from "../../styles/SinglePost.module.css";
-
 const SinglePost = ({ mdxSource, frontMatter }: any) => {
   const { title, featured, date, readingTime } = frontMatter;
 
   return (
-    <article className={styles.single__post}>
+    <article>
       <header>
         <h1>{title}</h1>
-        <span className={styles.post__meta}>
+        <span>
           {format(parseISO(date), "MMMM dd, yyyy")}
           <span> . </span> {readingTime.text}
         </span>
