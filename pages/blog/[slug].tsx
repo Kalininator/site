@@ -8,7 +8,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
   const { title, featured, date, readingTime } = frontMatter;
 
   return (
-    <article>
+    <article className="prose prose-slate prose-img:rounded-xl">
       <header>
         <h1>{title}</h1>
         <span>
@@ -19,7 +19,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           <Image width={800} height={470} src={featured} alt={title} />
         )}
       </header>
-      <div className="prose prose-slate prose-img:rounded-xl">
+      <div >
         <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
       </div>
     </article>

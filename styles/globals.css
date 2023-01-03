@@ -19,27 +19,6 @@ body {
   font-family: system-ui,-apple-system,Segoe UI,Ubuntu,sans-serif,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
 
 }
-
-h1 {
-  font-size: 2.75rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.06em;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -.04em;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-@media (min-width: 768px){
-  h1 {
-    font-size: 6.25rem;
-  }
-}
-
 .anchor {
   margin-left: 5px;
   color: #9ca3af;
