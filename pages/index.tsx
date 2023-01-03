@@ -19,9 +19,9 @@ export default function Home({ postsData }: { postsData: any }) {
           const { slug, title, date, description } = post;
 
           return (
-            <li className="mb-8 list-none last:mb-0" key={slug}>
+            <li className="mb-8 list-none last:mb-0 hover:shadow" key={slug}>
               <Link href={`/blog/${slug}`} className="">
-                <article className="rounded-md border border-slate-300 p-5">
+                <article className="rounded-xl border border-slate-200 p-5">
                   <h2 className="mb-2 text-2xl font-semibold leading-normal">
                     {title}
                   </h2>
