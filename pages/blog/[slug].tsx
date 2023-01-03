@@ -19,7 +19,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           <Image width={800} height={470} src={featured} alt={title} />
         )}
       </header>
-      <div>
+      <div className="prose prose-slate prose-img:rounded-xl">
         <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
       </div>
     </article>
