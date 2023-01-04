@@ -27,7 +27,7 @@ export default function Home({ postsData }: { postsData: any }) {
 
             return (
               <li className="mb-4 list-none last:mb-0 hover:shadow" key={slug}>
-                <Link href={`/blog/${slug}`} className="">
+                <Link href={`/posts/${slug}`} className="">
                   <article className="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
                     <h2 className="mb-0 text-2xl font-semibold leading-normal">
                       {title}
