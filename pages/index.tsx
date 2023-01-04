@@ -21,7 +21,6 @@ export default function Home({ postsData }: { postsData: any }) {
       <div>
         <ul>
           {postsData.map((post: any) => {
-            console.log(post);
             const { slug, title, date, description, readingTime } = post;
 
             return (
