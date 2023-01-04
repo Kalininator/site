@@ -2,8 +2,10 @@ import Link from "next/link";
 import { parseISO, format } from "date-fns";
 import { getSortedPost } from "../utils/mdx";
 import Head from "next/head";
+import generateRssFeed from "../utils/generateRSSFeed";
 
 export async function getStaticProps() {
+  await generateRssFeed();
   const postsData = await getSortedPost();
   return {
     props: {
