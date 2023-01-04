@@ -12,8 +12,11 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta property="article:published_time" content={date} />
+        <meta name="description" property="og:description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:published_date" content={date} />
       </Head>
       <article className="prose prose-slate prose-img:rounded-xl">
         <header>
