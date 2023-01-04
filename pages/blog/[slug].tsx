@@ -12,7 +12,11 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" property="og:description" content={description} />
+        <meta
+          name="description"
+          property="og:description"
+          content={description}
+        />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
