@@ -30,7 +30,7 @@ export default function Home({ postsData }: { postsData: any }) {
                     <h2 className="mb-0 text-2xl font-semibold leading-normal">
                       {title}
                     </h2>
-                    <div className="text-sm mb-4 leading-relaxed text-gray-700">
+                    <div className="mb-4 text-sm leading-relaxed text-gray-700">
                       <span className="text-sm leading-relaxed text-gray-700">
                         {format(parseISO(date), "do MMMM, yyyy")} - ☕{" "}
                         {readingTime.text}
