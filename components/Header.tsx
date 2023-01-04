@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-const menuItems = [{ label: `Home`, url: `/` }];
+const menuItems = [
+  { label: `GitHub`, url: `https://github.com/kalininator` },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/kalininator/" },
+];
 
 const Header = () => {
   return (
@@ -13,7 +16,7 @@ const Header = () => {
           <ul className="flex list-none">
             {menuItems.map(({ url, label }, index) => (
               <li
-                className="relative block text-left text-base hover:underline"
+                className="relative block px-2 text-left text-base hover:underline"
                 key={index}
               >
                 <Link href={url}>{label}</Link>

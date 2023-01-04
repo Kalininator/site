@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const CustomLink = (props) => {
+const CustomLink = (props: any) => {
   const { href } = props;
   const isInternalLink = href && href.startsWith("/");
 
@@ -9,7 +9,7 @@ const CustomLink = (props) => {
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
+      <Link legacyBehavior href={href}>
         <a {...props} />
       </Link>
     );
@@ -24,7 +24,7 @@ const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-const CustomImage = (props) => {
+const CustomImage = (props: any) => {
   return <Image alt="" layout="responsive" loading="lazy" {...props} />;
 };
 

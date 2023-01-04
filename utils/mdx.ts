@@ -21,7 +21,7 @@ export async function getSortedPost() {
 
   const files = fs.readdirSync(postDirectory);
 
-  const postLists = [];
+  const postLists: any[] = [];
 
   if (!files) return;
 
@@ -30,7 +30,11 @@ export async function getSortedPost() {
     const content = fs.readFileSync(filePath, "utf8");
     const { data } = matter(content);
 
-    postLists.push({ ...data, slug: file.replace(".mdx", "") });
+    postLists.push({
+      ...data,
+      slug: file.replace(".mdx", ""),
+      readingTime: readingTime(content),
+    });
   });
 
   // Sort posts by date
@@ -49,7 +53,7 @@ export async function getPostDir(): Promise<string[]> {
 
 // get file by slug
 
-export async function getFileBySlug(slug) {
+export async function getFileBySlug(slug: string) {
   // get file content
   const fileContent = fs.readFileSync(
     path.join(rootDirectory, "posts", `${slug}.mdx`),
@@ -68,7 +72,7 @@ export async function getFileBySlug(slug) {
             behavior: "append",
           },
         ],
-        [imageSize, { dir: "public" }],
+        [imageSize, { dir: "public" }] as any,
       ],
     },
   });
