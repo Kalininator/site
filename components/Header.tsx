@@ -7,7 +7,7 @@ const menuItems = [
 
 const Header = () => {
   return (
-    <header className="shadow">
+    <header className="shadow dark:shadow-slate-600">
       <div className="mx-auto flex h-14 max-w-screen-md flex-wrap items-center justify-between px-2">
         <Link href="/" className="text-2xl">
           Alex Kalinin
@@ -16,7 +16,7 @@ const Header = () => {
           <ul className="flex list-none">
             {menuItems.map(({ url, label }, index) => (
               <li
-                className="relative mx-2 block rounded-lg p-2 text-left text-base hover:shadow"
+                className="relative mx-2 block rounded-lg p-2 text-left text-base hover:shadow hover:dark:shadow-slate-600"
                 key={index}
               >
                 <Link href={url}>{label}</Link>
