@@ -6,18 +6,30 @@ import { parseISO, format } from "date-fns";
 import Head from "next/head";
 
 const SinglePost = ({ mdxSource, frontMatter }: any) => {
-  const { title, featured, date, readingTime } = frontMatter;
-
+  const { title, featured, date, readingTime, description } = frontMatter;
+  const parsedDate = parseISO(date);
   return (
     <>
       <Head>
         <title>{title}</title>
+        <meta
+          name="description"
+          property="og:description"
+          content={description}
+        />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_GB" />
+        <meta
+          property="og:published_date"
+          content={format(parsedDate, "yyyy-MM-ddTHH:mm:sszzz")}
+        />
       </Head>
       <article className="prose prose-slate prose-img:rounded-xl">
         <header>
           <h1>{title}</h1>
           <span>
-            {format(parseISO(date), "MMMM dd, yyyy")}
+            {format(parsedDate, "MMMM dd, yyyy")}
             <span> . </span> {readingTime.text}
           </span>
           {featured && (
