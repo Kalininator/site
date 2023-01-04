@@ -21,19 +21,18 @@ export default function Home({ postsData }: { postsData: any }) {
       <div>
         <ul>
           {postsData.map((post: any) => {
-            console.log(post);
             const { slug, title, date, description, readingTime } = post;
 
             return (
-              <li className="mb-8 list-none last:mb-0 hover:shadow" key={slug}>
+              <li className="mb-4 list-none last:mb-0 hover:shadow" key={slug}>
                 <Link href={`/blog/${slug}`} className="">
                   <article className="rounded-xl border border-slate-200 p-5">
-                    <h2 className="mb-2 text-2xl font-semibold leading-normal">
+                    <h2 className="mb-0 text-2xl font-semibold leading-normal">
                       {title}
                     </h2>
-                    <div className="text-sm leading-relaxed text-gray-700">
+                    <div className="mb-4 text-sm leading-relaxed text-gray-700">
                       <span className="text-sm leading-relaxed text-gray-700">
-                        {format(parseISO(date), "MMMM dd, yyyy")} - ☕{" "}
+                        {format(parseISO(date), "do MMMM, yyyy")} - ☕{" "}
                         {readingTime.text}
                       </span>{" "}
                     </div>
