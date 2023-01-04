@@ -21,7 +21,8 @@ export default function Home({ postsData }: { postsData: any }) {
       <div>
         <ul>
           {postsData.map((post: any) => {
-            const { slug, title, date, description } = post;
+            console.log(post);
+            const { slug, title, date, description, readingTime } = post;
 
             return (
               <li className="mb-8 list-none last:mb-0 hover:shadow" key={slug}>
@@ -32,7 +33,8 @@ export default function Home({ postsData }: { postsData: any }) {
                     </h2>
                     <div className="text-sm leading-relaxed text-gray-700">
                       <span className="text-sm leading-relaxed text-gray-700">
-                        {format(parseISO(date), "MMMM dd, yyyy")}
+                        {format(parseISO(date), "MMMM dd, yyyy")} - ☕{" "}
+                        {readingTime.text}
                       </span>{" "}
                     </div>
                     <p>{description}</p>
