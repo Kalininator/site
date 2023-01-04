@@ -3,24 +3,30 @@ import Image from "next/image";
 import MDXComponents from "../../components/MdxComponents";
 import { getPostDir, getFileBySlug } from "../../utils/mdx";
 import { parseISO, format } from "date-fns";
+import Head from "next/head";
 
 const SinglePost = ({ mdxSource, frontMatter }: any) => {
   const { title, featured, date, readingTime } = frontMatter;
 
   return (
-    <article className="prose prose-slate prose-img:rounded-xl">
-      <header>
-        <h1>{title}</h1>
-        <span>
-          {format(parseISO(date), "MMMM dd, yyyy")}
-          <span> . </span> {readingTime.text}
-        </span>
-        {featured && (
-          <Image width={800} height={470} src={featured} alt={title} />
-        )}
-      </header>
-      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
-    </article>
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <article className="prose prose-slate prose-img:rounded-xl">
+        <header>
+          <h1>{title}</h1>
+          <span>
+            {format(parseISO(date), "MMMM dd, yyyy")}
+            <span> . </span> {readingTime.text}
+          </span>
+          {featured && (
+            <Image width={800} height={470} src={featured} alt={title} />
+          )}
+        </header>
+        <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+      </article>
+    </>
   );
 };
 
