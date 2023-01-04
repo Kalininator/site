@@ -6,12 +6,14 @@ import { parseISO, format } from "date-fns";
 import Head from "next/head";
 
 const SinglePost = ({ mdxSource, frontMatter }: any) => {
-  const { title, featured, date, readingTime } = frontMatter;
+  const { title, featured, date, readingTime, description } = frontMatter;
 
   return (
     <>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="article:published_time" content={date} />
       </Head>
       <article className="prose prose-slate prose-img:rounded-xl">
         <header>
