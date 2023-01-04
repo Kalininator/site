@@ -25,7 +25,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           content={format(parsedDate, "yyyy-MM-ddTHH:mm:sszzz")}
         />
       </Head>
-      <article className="prose prose-slate prose-img:rounded-xl">
+      <article className="prose prose-slate prose-img:rounded-xl dark:prose-invert">
         <header>
           <h1>{title}</h1>
           <span>
