@@ -19,9 +19,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           <Image width={800} height={470} src={featured} alt={title} />
         )}
       </header>
-      <div >
-        <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
-      </div>
+      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
     </article>
   );
 };
