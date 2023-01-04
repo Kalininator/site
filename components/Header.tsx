@@ -16,7 +16,7 @@ const Header = () => {
           <ul className="flex list-none">
             {menuItems.map(({ url, label }, index) => (
               <li
-                className="relative block px-2 text-left text-base hover:underline"
+                className="relative mx-2 block rounded-lg p-2 text-left text-base hover:shadow"
                 key={index}
               >
                 <Link href={url}>{label}</Link>
