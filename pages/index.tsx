@@ -32,11 +32,11 @@ export default function Home({ postsData }: { postsData: any }) {
               >
                 <Link href={`/posts/${slug}`} className="">
                   <article className="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
-                    <h2 className="mb-0 text-2xl font-semibold leading-normal">
+                    <h2 className="mb-0 text-2xl font-semibold leading-normal dark:text-violet-400">
                       {title}
                     </h2>
-                    <div className="mb-4 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
-                      <span className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    <div className="mb-4 text-sm leading-relaxed ">
+                      <span className="text-sm leading-relaxed text-slate-700 dark:text-violet-500">
                         {format(parseISO(date), "do MMMM, yyyy")} - ☕{" "}
                         {readingTime.text}
                       </span>{" "}

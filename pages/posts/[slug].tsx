@@ -25,12 +25,12 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           content={format(parsedDate, "yyyy-MM-ddTHH:mm:sszzz")}
         />
       </Head>
-      <article className="prose prose-slate prose-img:rounded-xl dark:prose-invert">
+      <article className="prose prose-slate prose-img:rounded-xl dark:prose-invert dark:prose-violet dark:prose-headings:text-violet-400">
         <header>
           <h1>{title}</h1>
-          <span>
-            {format(parsedDate, "MMMM dd, yyyy")}
-            <span> . </span> {readingTime.text}
+          <span className="dark:text-violet-400">
+            {format(parsedDate, "do MMMM, yyyy")}
+            <span> - ☕ </span> {readingTime.text}
           </span>
           {featured && (
             <Image width={800} height={470} src={featured} alt={title} />
