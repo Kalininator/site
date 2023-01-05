@@ -41,7 +41,7 @@ export default function Home({ postsData }: { postsData: any }) {
                         {readingTime.text}
                       </span>{" "}
                     </div>
-                    <p className="">{description}</p>
+                    <p className="dark:text-violet-300">{description}</p>
                   </article>
                 </Link>
               </li>

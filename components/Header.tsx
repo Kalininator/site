@@ -7,7 +7,7 @@ const menuItems = [
 
 const Header = () => {
   return (
-    <header className="text-violet-700 shadow dark:text-violet-400 dark:shadow-slate-600">
+    <header className="text-violet-700 shadow shadow-violet-200 dark:text-violet-400 dark:shadow-violet-900">
       <div className="mx-auto flex h-14 max-w-screen-md flex-wrap items-center justify-between px-4">
         <Link href="/" className="text-2xl font-semibold">
           Alex Kalinin
