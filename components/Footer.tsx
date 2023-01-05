@@ -12,21 +12,21 @@ const Footer = () => {
           rel="noreferrer"
           target="_blank"
         >
-          <BsGithub size="30px" className="text-black dark:text-white"/>
+          <BsGithub className="h-8 w-8 text-black dark:text-white" />
         </a>
         <a
           href="https://www.linkedin.com/in/kalininator/"
           rel="noreferrer"
           target="_blank"
         >
-          <BsLinkedin color="#0072b1" size="30px" />
+          <BsLinkedin className="h-8 w-8 text-[#0072b1]" />
         </a>
         <a
           href="http://www.kalinin.uk/rss.xml"
           rel="noreferrer"
           target="_blank"
         >
-          <MdRssFeed color="#ee802f" size="30px" />
+          <MdRssFeed className="h-8 w-8 text-orange-500" />
         </a>
       </div>
     </footer>
