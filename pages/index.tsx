@@ -30,18 +30,18 @@ export default function Home({ postsData }: { postsData: any }) {
                 className="mb-4 list-none rounded-xl last:mb-0 hover:shadow dark:hover:shadow-slate-500"
                 key={slug}
               >
-                <Link href={`/posts/${slug}`} className="">
-                  <article className="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
-                    <h2 className="mb-0 text-2xl font-semibold leading-normal dark:text-violet-400">
+                <Link href={`/posts/${slug}`}>
+                  <article className="rounded-xl border border-violet-100 p-5 dark:border-slate-800">
+                    <h2 className="mb-0 text-2xl font-semibold leading-normal text-violet-800 dark:text-violet-400">
                       {title}
                     </h2>
                     <div className="mb-4 text-sm leading-relaxed ">
-                      <span className="text-sm leading-relaxed text-slate-700 dark:text-violet-500">
+                      <span className="text-sm leading-relaxed text-violet-600 dark:text-violet-500">
                         {format(parseISO(date), "do MMMM, yyyy")} - ☕{" "}
                         {readingTime.text}
                       </span>{" "}
                     </div>
-                    <p>{description}</p>
+                    <p className="">{description}</p>
                   </article>
                 </Link>
               </li>
