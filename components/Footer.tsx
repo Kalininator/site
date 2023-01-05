@@ -12,7 +12,7 @@ const Footer = () => {
           rel="noreferrer"
           target="_blank"
         >
-          <BsGithub size="30px" />
+          <BsGithub size="30px" className="text-black dark:text-white"/>
         </a>
         <a
           href="https://www.linkedin.com/in/kalininator/"
