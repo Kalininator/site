@@ -11,6 +11,7 @@ const Footer = () => {
           href="https://github.com/kalininator"
           rel="noreferrer"
           target="_blank"
+          aria-label="My GitHub profile"
         >
           <BsGithub className="h-8 w-8 text-black dark:text-white" />
         </a>
@@ -18,6 +19,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/kalininator/"
           rel="noreferrer"
           target="_blank"
+          aria-label="My LinkedIn profile"
         >
           <BsLinkedin className="h-8 w-8 text-[#0072b1]" />
         </a>
@@ -25,6 +27,7 @@ const Footer = () => {
           href="http://www.kalinin.uk/rss.xml"
           rel="noreferrer"
           target="_blank"
+          aria-label="RSS feed for the blog"
         >
           <MdRssFeed className="h-8 w-8 text-orange-500" />
         </a>
