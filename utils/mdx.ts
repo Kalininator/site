@@ -3,35 +3,46 @@ import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
-import readingTime from "reading-time";
+import readingTime, { ReadTimeResults } from "reading-time";
 
 // rehype plugins
 import imageSize from "rehype-img-size";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { z } from "zod";
 
 // imports end
 
 const rootDirectory = process.cwd();
 
+const PostFrontmatter = z.object({
+  title: z.string(),
+  description: z.string(),
+  date: z.string(),
+});
+export type Post = z.infer<typeof PostFrontmatter> & {
+  slug: string;
+  readingTime: ReadTimeResults;
+};
+
 // get sorted mdx post
 
-export async function getSortedPost() {
+export async function getSortedPost(): Promise<Post[]> {
   const postDirectory = path.join(rootDirectory, "posts");
 
   const files = fs.readdirSync(postDirectory);
 
-  const postLists: any[] = [];
+  const postLists: Post[] = [];
 
-  if (!files) return;
+  if (!files) return postLists;
 
   files.forEach((file) => {
     const filePath = path.join(postDirectory, file);
     const content = fs.readFileSync(filePath, "utf8");
     const { data } = matter(content);
-
+    const frontmatter = PostFrontmatter.parse(data);
     postLists.push({
-      ...data,
+      ...frontmatter,
       slug: file.replace(".mdx", ""),
       readingTime: readingTime(content),
     });
@@ -61,6 +72,7 @@ export async function getFileBySlug(slug: string) {
   );
 
   const { data, content } = matter(fileContent);
+  const frontmatter = PostFrontmatter.parse(data);
   const mdxSource = await serialize(content, {
     mdxOptions: {
       development: false,
@@ -82,7 +94,7 @@ export async function getFileBySlug(slug: string) {
     frontMatter: {
       readingTime: readingTime(content),
       slug: slug || null,
-      ...data,
+      ...frontmatter,
     },
   };
 }

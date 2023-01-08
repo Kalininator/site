@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { parseISO, format } from "date-fns";
-import { getSortedPost } from "../utils/mdx";
+import { format, parseISO } from "date-fns";
+import { getSortedPost, Post } from "../utils/mdx";
 import Head from "next/head";
 import generateRssFeed from "../utils/generateRSSFeed";
 
@@ -14,7 +14,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ postsData }: { postsData: any }) {
+export default function Home({ postsData }: { postsData: Post[] }) {
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ export default function Home({ postsData }: { postsData: any }) {
       </Head>
       <div>
         <ul>
-          {postsData.map((post: any) => {
+          {postsData.map((post: Post) => {
             const { slug, title, date, description, readingTime } = post;
 
             return (
