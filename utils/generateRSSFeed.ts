@@ -1,12 +1,12 @@
 import fs from "fs";
-import { Feed } from "feed";
+import { Feed, FeedOptions } from "feed";
 import { getSortedPost } from "./mdx";
 
 export default async function generateRssFeed() {
   const allPosts = await getSortedPost();
   const site_url = "www.kalinin.uk";
 
-  const feedOptions = {
+  const feedOptions: FeedOptions = {
     title: "Blog posts | RSS Feed",
     description: "Welcome to this blog posts!",
     id: site_url,
