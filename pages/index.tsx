@@ -2,7 +2,6 @@ import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { getSortedPost, Post } from "../utils/mdx";
 import Head from "next/head";
-import generateRssFeed from "../utils/generateRSSFeed";
 import { CiCircleRemove } from "react-icons/ci";
 
 export async function getServerSideProps(context: any) {
