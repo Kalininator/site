@@ -19,6 +19,7 @@ const PostFrontmatter = z.object({
   title: z.string(),
   description: z.string(),
   date: z.string(),
+  tags: z.string().array().default([]),
 });
 export type Post = z.infer<typeof PostFrontmatter> & {
   slug: string;
@@ -27,7 +28,7 @@ export type Post = z.infer<typeof PostFrontmatter> & {
 
 // get sorted mdx post
 
-export async function getSortedPost(): Promise<Post[]> {
+export async function getSortedPost(tag?: string): Promise<Post[]> {
   const postDirectory = path.join(rootDirectory, "posts");
 
   const files = fs.readdirSync(postDirectory);
@@ -50,11 +51,14 @@ export async function getSortedPost(): Promise<Post[]> {
 
   // Sort posts by date
 
-  return postLists.sort((a, b) => {
+  const sorted = postLists.sort((a, b) => {
     if (a.date < b.date) return 1;
     if (a.date > b.date) return -1;
     return 0;
   });
+
+  if (!tag) return sorted;
+  return sorted.filter((post) => post.tags.includes(tag));
 }
 
 // get post type dir
