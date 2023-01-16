@@ -6,7 +6,6 @@ import generateRssFeed from "../utils/generateRSSFeed";
 import { CiCircleRemove } from "react-icons/ci";
 
 export async function getServerSideProps(context: any) {
-  await generateRssFeed();
   const postsData = await getSortedPost(context.query.tag);
   return {
     props: {
