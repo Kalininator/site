@@ -4,9 +4,11 @@ import MDXComponents from "../../components/MdxComponents";
 import { getPostDir, getFileBySlug } from "../../utils/mdx";
 import { format, parseISO } from "date-fns";
 import Head from "next/head";
+import DisqusComments from "../../components/DisqusComments";
 
 const SinglePost = ({ mdxSource, frontMatter }: any) => {
-  const { title, featured, date, readingTime, description } = frontMatter;
+  const { title, featured, date, readingTime, description, slug } = frontMatter;
+  const disqusPost = { title, id: slug, slug };
   return (
     <>
       <Head>
@@ -36,6 +38,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           )}
         </header>
         <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+        <DisqusComments post={disqusPost} />
       </article>
     </>
   );
