@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const menuItems = [
+  { label: `Posts`, url: "/posts" },
   { label: `GitHub`, url: `https://github.com/kalininator` },
   { label: "LinkedIn", url: "https://www.linkedin.com/in/kalininator/" },
 ];
