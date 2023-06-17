@@ -19,7 +19,6 @@ export async function getStaticProps() {
 export default function Home({ postsData }: { postsData: Post[] }) {
   const router = useRouter();
   const tag: string = (router.query.tag as string) || "";
-  console.log(tag);
   return (
     <>
       <Head>
