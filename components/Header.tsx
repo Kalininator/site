@@ -9,7 +9,7 @@ const menuItems = [
 
 const Header = () => {
   return (
-    <header className="text-[#f4bc4c]">
+    <header className="relative z-10 text-[#f4bc4c]">
       <div className="mx-auto flex h-14 max-w-screen-md flex-wrap items-center justify-between px-4">
         <Link href="/" className="text-2xl font-semibold">
           <Image
