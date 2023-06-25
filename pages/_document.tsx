@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta name="Description" content="Alex Kalinin's Blog"></meta>
+        <meta name="Description" content="Alex Kalinin"></meta>
         <meta name="author" content="Alex Kalinin"></meta>
         <script
           data-goatcounter="https://kalininator.goatcounter.com/count"
@@ -34,7 +34,7 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#da532c"></meta>
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-      <body className="bg-white dark:bg-slate-900 dark:text-violet-200">
+      <body className="bg-slate-900 text-violet-200">
         <Main />
         <NextScript />
       </body>

@@ -1,86 +1,64 @@
-import Link from "next/link";
-import { format, parseISO } from "date-fns";
-import { getSortedPost, Post } from "../utils/mdx";
 import Head from "next/head";
-import { CiCircleRemove } from "react-icons/ci";
-import generateRssFeed from "../utils/generateRSSFeed";
-import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import bg from "../public/background-dim-small.jpg";
 
-export async function getStaticProps() {
-  const postsData = await getSortedPost();
-  await generateRssFeed();
-  return {
-    props: {
-      postsData,
-    },
-  };
-}
-
-export default function Home({ postsData }: { postsData: Post[] }) {
-  const router = useRouter();
-  const tag: string = (router.query.tag as string) || "";
+export default function Home() {
   return (
     <>
       <Head>
         <title>Alex Kalinin</title>
       </Head>
-      <div>
-        <div className="mb-4 flex space-x-4 text-violet-500 dark:text-amber-400">
-          {tag && (
-            <Link
-              href="/"
-              className="rounded-lg border px-2 py-1 font-semibold capitalize text-violet-900 dark:border-slate-800 dark:text-amber-300 dark:hover:border-slate-600"
-            >
-              <div className="flex items-center">
-                <CiCircleRemove className="mr-2 text-xl" />
-                {tag}
-              </div>
-            </Link>
-          )}
-          {["homelab", "guide", "project"]
-            .filter((t) => t !== tag)
-            .map((tag) => {
-              return (
-                <Link
-                  href={`/?tag=${tag}`}
-                  key={tag}
-                  className="rounded-lg border px-2 py-1 capitalize dark:border-slate-800 dark:hover:border-slate-600"
-                >
-                  {tag}
-                </Link>
-              );
-            })}
+      <div className="absolute inset-0 h-screen w-screen">
+        <Image
+          src={bg}
+          alt="background image"
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
+      <div className="relative z-10 my-[30vh] flex w-full flex-col items-center justify-center gap-y-12">
+        <Image
+          src="/stylized-name.svg"
+          width={300}
+          height={100}
+          alt="Alex Kalinin"
+        />
+        <p className="w-3/4 text-center text-[#f4bc4c]">
+          Software engineer, travelling the world. Blog mostly about homelab,
+          guides, and projects.
+        </p>
+        <div className="flex flex-row items-center justify-center gap-x-4">
+          <Link href="https://www.github.com/kalininator" target="_blank">
+            <Image
+              src="/icons8-github.svg"
+              alt="GitHub"
+              width={60}
+              height={60}
+            ></Image>
+          </Link>
+          <Link href="https://www.linkedin.com/in/kalininator/" target="_blank">
+            <Image
+              src="/icons8-linkedin.svg"
+              alt="LinkedIn"
+              width={60}
+              height={60}
+            ></Image>
+          </Link>
+          <Link href="https://www.instagram.com/kalininator/" target="_blank">
+            <Image
+              src="/icons8-instagram.svg"
+              alt="Instagram"
+              width={60}
+              height={60}
+            ></Image>
+          </Link>
         </div>
-        <ul>
-          {postsData
-            .filter((p) => tag == "" || p.tags.includes(tag))
-            .map((post: Post) => {
-              const { slug, title, date, description, readingTime } = post;
-
-              return (
-                <li
-                  className="mb-4 list-none rounded-xl last:mb-0 hover:shadow dark:hover:shadow-slate-500"
-                  key={slug}
-                >
-                  <Link href={`/posts/${slug}`}>
-                    <article className="rounded-xl border border-violet-100 p-5 dark:border-slate-800">
-                      <h2 className="mb-0 text-2xl font-semibold leading-normal text-violet-800 dark:text-amber-500">
-                        {title}
-                      </h2>
-                      <div className="text-sm leading-relaxed text-violet-600 dark:text-violet-400">
-                        {format(parseISO(date), "do MMMM, yyyy")} - ☕{" "}
-                        {readingTime.text}
-                      </div>
-                      <div className="mb-2 text-sm capitalize italic leading-relaxed text-violet-600 dark:text-violet-400">
-                        {post.tags.join(", ")}
-                      </div>
-                      <p className="dark:text-violet-300">{description}</p>
-                    </article>
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
       </div>
     </>
   );
