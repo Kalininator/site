@@ -9,7 +9,12 @@ export default function Home() {
         <title>Alex Kalinin</title>
       </Head>
       <div className="my-[30vh] flex w-full flex-col items-center justify-center gap-y-12">
-        <Image src="/stylized-name.svg" width={300} height={100} alt="Alex Kalinin" />
+        <Image
+          src="/stylized-name.svg"
+          width={300}
+          height={100}
+          alt="Alex Kalinin"
+        />
         <p className="w-3/4 text-center text-[#f4bc4c]">
           Software engineer, travelling the world. Blog mostly about homelab,
           guides, and projects.
