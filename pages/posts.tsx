@@ -22,7 +22,7 @@ export default function Posts({ postsData }: { postsData: Post[] }) {
   return (
     <>
       <Head>
-        <title>Alex Kalinin</title>
+        <title>Alex Kalinin - Posts</title>
       </Head>
       <div>
         <div className="mb-4 flex space-x-4 text-violet-500 dark:text-amber-400">
