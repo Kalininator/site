@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import bg from "../public/background-dim.jpg";
+import bg from "../public/background-dim-small.jpg";
 
 export default function Home() {
   return (
