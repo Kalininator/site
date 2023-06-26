@@ -24,7 +24,7 @@ const Footer = () => {
           <BsLinkedin className="h-8 w-8 text-[#0072b1]" />
         </a>
         <a
-          href="http://www.kalinin.uk/rss.xml"
+          href="http://www.kalinin.dev/rss.xml"
           rel="noreferrer"
           target="_blank"
           aria-label="RSS feed for the blog"
