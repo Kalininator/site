@@ -10,7 +10,7 @@ const DisqusComments = ({
 }) => {
   const disqusShortname = "kalinin";
   const disqusConfig = {
-    url: `https://www.kalinin.uk/posts/${post.slug}`,
+    url: `https://www.kalinin.dev/posts/${post.slug}`,
     identifier: post.id, // Single post id
     title: post.title, // Single post title
   };

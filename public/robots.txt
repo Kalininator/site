@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.kalinin.uk
+Host: https://www.kalinin.dev
 
 # Sitemaps
-Sitemap: https://www.kalinin.uk/sitemap.xml
+Sitemap: https://www.kalinin.dev/sitemap.xml

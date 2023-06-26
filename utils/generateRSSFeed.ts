@@ -4,7 +4,7 @@ import { getSortedPost } from "./mdx";
 
 export default async function generateRssFeed() {
   const allPosts = await getSortedPost();
-  const site_url = "www.kalinin.uk";
+  const site_url = "www.kalinin.dev";
 
   const feedOptions: FeedOptions = {
     title: "Blog posts | RSS Feed",
