@@ -1,3 +1,4 @@
+import { MdRssFeed } from "react-icons/md";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { getSortedPost, Post } from "../utils/mdx";
@@ -50,6 +51,15 @@ export default function Posts({ postsData }: { postsData: Post[] }) {
                 </Link>
               );
             })}
+          <div className="grow"></div>
+          <a
+            href="http://www.kalinin.dev/rss.xml"
+            rel="noreferrer"
+            target="_blank"
+            aria-label="RSS feed for the blog"
+          >
+            <MdRssFeed className="h-8 w-8 text-orange-500" />
+          </a>
         </div>
         <ul>
           {postsData
