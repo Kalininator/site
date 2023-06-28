@@ -35,21 +35,13 @@ export default function Home() {
         </p>
         <div className="flex h-14 flex-row items-center justify-center gap-x-4">
           <Link href="https://www.github.com/kalininator" target="_blank">
-            <Image src={githubIcon} alt="GitHub" className="h-16 w-16"></Image>
+            <Image src={githubIcon} alt="GitHub" className="h-16 w-16" />
           </Link>
           <Link href="https://www.linkedin.com/in/kalininator/" target="_blank">
-            <Image
-              src={linkedinIcon}
-              alt="LinkedIn"
-              className="h-16 w-16"
-            ></Image>
+            <Image src={linkedinIcon} alt="LinkedIn" className="h-16 w-16" />
           </Link>
           <Link href="https://www.instagram.com/kalininator/" target="_blank">
-            <Image
-              src={instagramIcon}
-              alt="Instagram"
-              className="h-16 w-16"
-            ></Image>
+            <Image src={instagramIcon} alt="Instagram" className="h-16 w-16" />
           </Link>
         </div>
       </div>

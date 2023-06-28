@@ -25,7 +25,18 @@ const CustomLink = (props: any) => {
 };
 
 const CustomImage = (props: any) => {
-  return <Image alt="" layout="responsive" loading="lazy" {...props} />;
+  return (
+    <Image
+      alt=""
+      loading="lazy"
+      {...props}
+      sizes="100vw"
+      style={{
+        width: "100%",
+        height: "auto",
+      }}
+    />
+  );
 };
 
 const MDXComponents = {
