@@ -5,7 +5,6 @@ import bg from "../public/background-dim-small.jpg";
 import githubIcon from "../public/icons8-github.svg";
 import linkedinIcon from "../public/icons8-linkedin.svg";
 import instagramIcon from "../public/icons8-instagram.svg";
-import stylizedName from "../public/stylized-name.svg";
 
 export default function Home() {
   return (
@@ -27,7 +26,7 @@ export default function Home() {
         />
       </div>
       <div className="relative z-10 my-[30vh] flex w-full flex-col items-center justify-center gap-y-12">
-        <Image src={stylizedName} alt="Alex Kalinin" className="h-16" />
+        <h1 className="font-gugi text-7xl text-[#f4bc4c]">Alex Kalinin</h1>
         <p className="w-3/4 text-center text-[#f4bc4c]">
           Software engineer, travelling the world. Blog mostly about homelab,
           guides, and projects.
