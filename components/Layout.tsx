@@ -1,6 +1,6 @@
 import Header from "./Header";
 import React from "react";
-import { Source_Sans_3, Gugi } from "@next/font/google";
+import { Source_Sans_3, Gugi, JetBrains_Mono } from "@next/font/google";
 
 const sourceSansPro = Source_Sans_3({
   subsets: ["latin"],
@@ -14,6 +14,11 @@ const gugi = Gugi({
   variable: "--font-gugi",
 });
 
+const jetbrains = JetBrains_Mono({
+  display: "swap",
+  variable: "--font-jetbrains",
+});
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     // <div className="flex min-h-screen flex-col bg-[#1f2c8a] bg-[url('/background-dim.jpg')] bg-cover bg-no-repeat">
@@ -21,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="grow">
         <Header />
         <main
-          className={`mx-auto max-w-screen-md py-8 px-4 ${sourceSansPro.variable} ${gugi.variable} font-sans`}
+          className={`mx-auto max-w-screen-md py-8 px-4 ${sourceSansPro.variable} ${gugi.variable} ${jetbrains.variable} font-sans`}
         >
           {children}
         </main>

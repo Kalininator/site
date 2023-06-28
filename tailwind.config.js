@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-source-sans)"],
         gugi: ["var(--font-gugi)"],
+        jetbrains: ["var(--font-jetbrains)"],
       },
     },
   },

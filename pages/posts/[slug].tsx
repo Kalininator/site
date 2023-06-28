@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
-import MDXComponents from "../../components/MdxComponents";
+import components from "../../components/MdxComponents";
 import { getPostDir, getFileBySlug } from "../../utils/mdx";
 import { format, parseISO } from "date-fns";
 import Head from "next/head";
@@ -37,7 +37,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
             <Image width={800} height={470} src={featured} alt={title} />
           )}
         </header>
-        <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+        <MDXRemote {...mdxSource} components={{ ...components }} />
         <DisqusComments post={disqusPost} />
       </article>
     </>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { MDXComponents } from "mdx/types";
 
 const CustomLink = (props: any) => {
   const { href } = props;
@@ -39,9 +40,10 @@ const CustomImage = (props: any) => {
   );
 };
 
-const MDXComponents = {
+const components: MDXComponents = {
   img: CustomImage,
   a: CustomLink,
+  code: (props) => <code className="font-jetbrains" {...props} />,
 };
 
-export default MDXComponents;
+export default components;
