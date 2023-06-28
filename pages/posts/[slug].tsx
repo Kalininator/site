@@ -26,7 +26,7 @@ const SinglePost = ({ mdxSource, frontMatter }: any) => {
           content={format(parseISO(date), "yyyy-MM-ddTHH:mm:sszzz")}
         />
       </Head>
-      <article className="prose max-w-full prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl">
+      <article className="prose prose-invert prose-violet max-w-full prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl">
         <header>
           <h1>{title}</h1>
           <span className="text-violet-400">
