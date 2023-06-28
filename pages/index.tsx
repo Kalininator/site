@@ -26,7 +26,9 @@ export default function Home() {
         />
       </div>
       <div className="relative z-10 my-[30vh] flex w-full flex-col items-center justify-center gap-y-12">
-        <h1 className="font-gugi text-7xl text-[#f4bc4c] text-center">Alex Kalinin</h1>
+        <h1 className="text-center font-gugi text-7xl text-[#f4bc4c]">
+          Alex Kalinin
+        </h1>
         <p className="w-3/4 text-center text-[#f4bc4c]">
           Software engineer, travelling the world. Blog mostly about homelab,
           guides, and projects.
