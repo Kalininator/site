@@ -15,6 +15,7 @@ const gugi = Gugi({
 });
 
 const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
   display: "swap",
   variable: "--font-jetbrains",
 });
