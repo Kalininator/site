@@ -1,0 +1,160 @@
+---
+title: 'Building a Threadripper all in one homelab'
+description: 'So as part of downscaling the home lab, I needed to build a capable replacement for the existing 3 node vSAN cluster. Here’s a summary of my adventure, and the choices made along the way.'
+pubDate: '2020-06-02'
+heroImage: '/images/threadripper-build/built-angle-view.jpeg'
+---
+
+So as part of downscaling the home lab, I needed to build a capable replacement for the existing 3 node vSAN cluster. Here’s a summary of my adventure, and the choices made along the way.
+
+# The requirements
+
+For some context, this is part of my quest to downscale my lab at home, by modernising and compacting. More background info can be found here. In order to downscale at home, I need a VM host capable of replacing all of my current needs. Ideally, this box would have a VM to act as the storage replacement as well.
+ctua
+
+* CPU  
+While my current CPU requirements are fairly minimal, I need to take into account that I will effectively be replacing 6x E5-2620 v2 CPUs with a single CPU. So it needs to be strong enough to cope, but as my utilisation is very low currently, it doesn’t need to fully match the performance.
+* Memory  
+Based on current utilisation, if I were only using this box for VMs, I would want 128GB as a minimum. However, I want to also use this as the NAS, so I want the ability to expand up to 256GB if needed. This is because ZFS likes its memory very much, and relies on having a decent amount to keep up performance.
+* Storage  
+For the VM storage, I want approximately 2TB of usable flash storage. This should be adequate based on current needs, and room for growth.
+For the bulk storage, I would want at least 6 3.5″ bays to fill with dense drives (12TB or more)
+* Noise / Power Use  
+In this regard I want something fairly modern, as this will keep the build futureproof as well as efficient. After all, modernising and silencing are the main goals of this project.
+
+# Choosing the parts
+
+## CPU
+
+First question for CPUs, Intel or AMD? AMD was my choice here, as the modern Intel stuff would get quite expensive to have the performance I want out of the system. I ended up settling on Gen2 Threadrippers, mainly because of the value for money. I ended up finding a 2920X for just over £300 on ebay. This should be enough power for now and leaves room for upgrades later on, without changing anything else in the build.
+
+## Motherboard
+
+The motherboard is the main thing I needed to think about, as this would decide what CPU and RAM configuration I could have. The main concern for me was the amount of memory I can fit into it. Ideally this would be 256GB, which means 8 DIMMs.
+
+The motherboard I ended up choosing was the ASRock Rack X399D8A-2T. I initially dismissed this motherboard when searching, due to the price tag associated with it. For a while I was looking at the X399 Taichi. This motherboard has 8 DIMMs, which indicates it could do 8x32GB to have 256GB total. However, it only advertises 128GB so it would be a bit of a risk, and hard to test without buying all that memory up front.
+
+After a while, my flatmate pointed out that the ASRock Rack motherboard was a server board (I hadn’t noticed it was ASRock Rack vs ASRock). Lo and behold, so it was. The £120 extra now seemed rather appealing, as this board not only advertises 256GB capability, but is much more suited to my usecase. At this point in the process I had already assumed I wasn’t going to get my beloved remote management with this build, but here was ASRock, changing that completely. As well as IPMI, it also had 2x 10GbE NICs onboard, as well as other server goodies like an internal USB port.
+
+## Memory
+
+This part was fairly easy, I would start out with 4x 32GB sticks, and expand to 256GB later. 128GB should be enough memory to be able to fully replace the server rack. I decided to forgo ECC memory, as ECC DDR4 UDIMMS are quite expensive. Feel free rant about ZFS and ECC in the comments.
+
+## Case
+
+Honestly I didn’t spend much time thinking about the case. For years, I had heard good things about the Fractal Define R5. It also fits my usecase perfectly, with 8 3.5″ drive bays, 2 5.25″ bays if I need later, and some SSD brackets at the back. As well as that, there is plenty of cable management support. The lack of a window in the side was nice, I’m really not a fan of gamer style builds with disgusting flashing lights everywhere. Give me a nice clean design any day.
+
+## Other
+
+Other things I ordered include a USB to boot ESXi from, a power supply, and a Corsair H150i water cooler (I will get to this later). For VM storage, the plan was to just look around on ebay for some nice enterprise SSDs, but this was not a priority and could be sorted out later.
+
+# Things arrived!
+
+![Parts arrived](/images/threadripper-build/things-arrived.jpg)
+
+At this point I hadn’t acquired any SSDs, so I just pulled the 1TB MX500 SSD out of my Pocket Lab.
+
+Enjoy pics of the build process 🙂
+
+
+![Empty case](/images/threadripper-build/empty-case.jpg)
+![Motherboard](/images/threadripper-build/motherboard.jpeg)
+![CPU socket before adding cooler](/images/threadripper-build/cpu-socket.jpeg)
+![Build side view](/images/threadripper-build/built-side-view.jpeg)
+![Build angle view](/images/threadripper-build/built-angle-view.jpeg)
+
+# The cooler debacle
+
+## Cooler #1
+
+If you have a keen eye, you may have noticed that the cooler in those photos is in fact not the H150i. When the H150i arrived, I quickly realised it would not fit in the case. Well it could, but only if I removed the 5.25″ bays. While I did not need these now, I wanted to leave my options open for the future.
+
+## Cooler #2
+
+So I ordered cooler number 2, an H115i, which is just a smaller version of the H150i. That arrived next day as expected, but I then realised it needs an additional bracket to fit the socket. I would like to add, both Corsair and AMD advertise this cooler as being compatible with the TR4 socket. So I had to order a bracket for it.
+
+At this point I was a bit sceptical that the cooler would sufficiently cool the CPU, as it didn’t look like it would cover the whole CPU die. Turns out I was right, the CPU would idle at very high temperatures. Time for cooler number 3.
+
+## Cooler #3
+
+This time I decided to actually spent more than 10 minutes looking into the problem. After a while, I settled on a Noctua H-U14S TR4-SP3. While this was an air cooler, it was specifically designed for this socket, and had an adequate heatsink to cover the whole CPU.
+
+One benefit of having an air cooler, is it meant I could close up the panels at the top of the case. This might seem petty, but by having the radiator and fans at the top with a water cooler, it meant I couldn’t place items on top of the case, like a switch.
+
+![Bad CPU coverage](/images/threadripper-build/bad-cpu-coverage.jpeg)
+
+Here is what the CPU looked like when I took off the H115i. Clearly this was never gonna do a good job. Absolutely ridiculous that they even consider this thing as compatible. What a joke.
+
+Obligatory installation pics of the Noctua.
+
+![Build with noctua](/images/threadripper-build/noctua-build.jpg)
+
+# AMD and temperature readings
+
+Now that the new cooler was in place, I decided to take some new temperature readings.
+
+![High CPU temperature readings](/images/threadripper-build/high-cpu-readings.png)
+
+What. How is this still 58C? The weird thing is, the heatsink and pipes felt cold. After extensive googling and research, I decided to install Windows (desperate times indeed) and run AMD’s software to see what that said.
+
+![Temperature readings in Ryzen Master](/images/threadripper-build/ryzen-master.png)
+
+Interesting, looks like it’s all good. For a while I thought maybe it was just the motherboard reporting it wrong. Turns out, [AMD add an offset to CPU temperature readings](https://www.guru3d.com/articles-pages/amd-ryzen-threadripper-1950x-review,8.html) as much as 27C for Threadrippers. WTF? So I guess if I ever want to read the temperature, I need to subtract 27 from it.
+
+This made the readings with the Corsair Disaster Cooler seem a lot more reasonable, but even still the Noctua was 10C cooler.
+
+# Complete parts list
+
+Heres a summary of the final parts, not including VM storage.
+
+* Threadripper 2920X
+* ASRock Rack X399D8A-2T Motherboard
+* 4x 32GB Corsair Vengeance DDR4 3200
+* Noctua NH-U14S TR4-SP3
+* Corsair RM (2019) 850 W
+* Fractal Define R5
+* 32GB USB Boot drive
+
+In total this build cost me approximately £1800, not including any SSDs for VM storage. Quite expensive as is, but its a very powerful system, with lots of memory. And after all, it’s going to be replacing 3 rack servers.
+
+# VM Storage
+
+## Choices
+
+Ok, so it was time to acquire some SSDs for the VM storage. For VM storage, I would always recommend enterprise SSDs due to their reliablity, both in performance and lifespan. Synology have a great writeup about the performance aspect that you can find here. In terms of endurance, the lifetime TBW (Terabytes write) rating is upwards of 10 times that of consumer SSDs. This means you can buy a used enterprise SSD (I’m talking years of constant hammering) and it will still have more lifetime left than a brand new consumer SSD.
+
+Anyway, back to my build. I stumbled across some 1.92TB Samsung pm863a listed on eBay for around £180 each. This was a pretty good deal in itself, but the guy had Best Offer enabled for the listing. Am I gonna make a very cheeky offer? Of course I am! I offered £140 each for 2 SSDs, which I was fully expecting to get declined. Next morning I woke up to see a message from eBay. The guy accepted. I’ve had some pretty good deals in the past with enterprise SSDs on eBay, but this was the best of all. Generally, the trick to buying enterprise SSDs on eBay is to have some patience, and just check every now and then.
+
+## Installation
+
+After around a week, they had not arrived, and I was getting worried it was too good to be true. After politely messaging the seller on eBay, I got a text message response.
+
+![Text message](/images/threadripper-build/text-message.png)
+
+Seemed like an honest mistake, and quite funny at that. They arrived shortly after. No worries on my end, I was in no rush as I was using my M.2 SSD temporarily. Later on I ordered 2 more of these SSDs from the guy, the price was just too good. These will most likely replace my current 1TB pm863a’s in colocation.
+
+The 2 SSDs in the server were going to be mirrored, so I needed to acquire a RAID card. The motherboard has RAID capablity, but it is just AMD-RAID, which I wouldn’t even trust to delete my data. The card I ended up choosing was the Perc H710, as it has ample queue depth (1024), some cache, a battery for power outages, and is capable of everything I need.
+
+![Perc H710 installed in case](/images/threadripper-build/raid-card-installed.jpeg)
+
+As you can see, I have cleaned up the cabling quite a bit from earlier. This was mainly because I decided to unplug the cables from the front ports, like USB and Audio. These are completely unnecessary for my use case, and were just making the cabling situation messy. The other 2 sticks of memory had arrived by this point, so you can see those there as well.
+
+# Summary
+
+Overall I think this build has gone quite well, regardless of the complications along the way. The box is extremely quiet, and has an aesthetic I am happy with. So some notes on the parts:
+
+## The motherboard
+
+I fell in love with this motherboard, it really is perfect for my situation. The only thing I would have liked to be different was the CPU socket orientation. As you can see, with the way it is my air cooler has no choice put to point up, instead of out the back of the case.
+
+I didn’t have high hopes for the IPMI as I am pretty accustomed to HP iLO4. On the contrary, the IPMI on the motherboard is fantastic, definitely on par with iLO4, if not better.
+
+## The case
+
+The design is very nice, as I said earlier I’m really not a fan of gamery looking builds with glass and RGB everywhere. The cable management options are fantastic, and have allowed for a very clean layout internally. The only downside is the 2 fans included are not PWM, so I ended up swapping those out.
+
+## Future plans
+
+Now that the VM hosting part of the build is ready, the next step is to buy an HBA and some hard drives. This will let me migrate my bulk storage into the build as well.
+
+At the time of writing and building, I am at my parents place for a month or two, due to COVID-19. So unfortunately the lab migration won’t happen immediately. Expect a writeup on the migration later on.
