@@ -1,7 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+const menuItems = [
+  { label: `Blog`, url: '/posts' }
+  // { label: `GitHub`, url: `https://github.com/kalininator` },
+  // { label: "LinkedIn", url: "https://www.linkedin.com/in/kalininator/" },
+]
 ---
 
 <!doctype html>
@@ -9,16 +13,41 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <div class='absolute inset-0 h-screen w-screen'>
-      <img
-        src='/background-dim-small.jpg'
-        alt='background image'
-      />
-    </div>
+  <body class='h-full w-full overflow-hidden'>
+    <img
+      class='absolute inset-0 h-screen w-screen object-cover'
+      src='/background-dim-small.jpg'
+      alt='background image'
+    />
+    <header class='relative z-10 text-[#f4bc4c]'>
+      <div
+        class='mx-auto flex h-14 max-w-screen-md flex-wrap items-center justify-between px-4'
+      >
+        <a href='/' class='text-2xl font-semibold'>
+          <img
+            src='/Kalinin Without Slogan Transparent bg.svg'
+            alt='Alex Kalinin'
+            width={100}
+            height={200}
+          />
+        </a>
+        <nav>
+          <ul class='flex list-none'>
+            {
+              menuItems.map(({ url, label }) => (
+                <li
+                  class='relative mx-2 block rounded-lg p-2 text-left font-gugi text-xl hover:underline'
+                >
+                  <a href={url}>{label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div
-      class='relative z-10 my-[30vh] flex w-full flex-col items-center justify-center gap-y-12'
+      class='relative z-10 my-[30vh] flex w-full h-full flex-col items-center justify-center gap-y-12'
     >
       <h1 class='text-center font-gugi text-7xl text-[#f4bc4c]'>
         Alex Kalinin
@@ -29,13 +58,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
       </p>
       <div class='flex h-14 flex-row items-center justify-center gap-x-4'>
         <a href='https://www.github.com/kalininator' target='_blank'>
-	  <img src='/icons/icons8-github.svg' alt='GitHub' class='h-16 w-16' />
+          <img src='/icons/icons8-github.svg' alt='GitHub' class='h-16 w-16' />
         </a>
         <a href='https://www.linkedin.com/in/kalininator/' target='_blank'>
-	  <img src='/icons/icons8-linkedin.svg' alt='LinkedIn' class='h-16 w-16' />
+          <img
+            src='/icons/icons8-linkedin.svg'
+            alt='LinkedIn'
+            class='h-16 w-16'
+          />
         </a>
         <a href='https://www.instagram.com/kalininator/' target='_blank'>
-	  <img src='/icons/icons8-instagram.svg' alt='Instagram' class='h-16 w-16' />
+          <img
+            src='/icons/icons8-instagram.svg'
+            alt='Instagram'
+            class='h-16 w-16'
+          />
         </a>
       </div>
     </div>
