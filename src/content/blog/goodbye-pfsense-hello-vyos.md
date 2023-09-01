@@ -7,8 +7,6 @@ heroImage: './goodbye-pfsense-hello-vyos/meme.jpg'
 
 For a while now I’ve been meaning to switch from pfSense to VyOS for my lab routers, and had started playing around in a staging environment. I decided it’s finally time to bite the bullet and migrate the production environment.
 
-![A worthless meme](./goodbye-pfsense-hello-vyos/meme.jpg)
-
 # Why the switch?
 So there were quite a few reasons for me wanting to switch, and some more benefits that I discovered along the way. Here is a quick summary of the reasons I wanted to switch:
 

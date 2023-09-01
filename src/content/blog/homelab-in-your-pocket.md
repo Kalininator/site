@@ -7,8 +7,6 @@ heroImage: './homelab-in-your-pocket/fitlet-final.jpg'
 
 So I was just browsing reddit, and stumbled across this thing, the Fitlet 2. At first it just looked like a heatsink with antennas, so I had to look further. Turns out the specs of these things are pretty good for their form factor. This got me thinking, could this be a super portable VM host and mostly complete homelab site?
 
-![The final result](./homelab-in-your-pocket/fitlet-final.jpg)
-
 So first I’ll summarise the end result. A fully fledged VM host, with a router VM that is a Access Point, WiFi client, and 4G modem. With plenty of room for more VMs and maybe a k8s cluster.
 
 # What convinced me to buy this thing?

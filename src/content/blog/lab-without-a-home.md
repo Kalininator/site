@@ -26,8 +26,6 @@ I accepted as this seemed very reasonable, expecting him to bring it in a car or
 Nope. Man carried the thing on the tube, and *borrowed* an M&S trolley before meeting me half way
 where I had my own trolley to get it off him. Truly feel sorry for the guy.
 
-![Old colo server on a trolley](./lab-without-a-home/old-colo.jpeg)
-
 # The New Colo
 
 The Threadripper build is the only host remaining, so it needed a bit of updating before moving to colo.

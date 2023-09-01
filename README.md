@@ -8,4 +8,3 @@
 * robots.txt
 * sitemap
 * Move images to assets so they can be optimised
-* dedupe hero images and content

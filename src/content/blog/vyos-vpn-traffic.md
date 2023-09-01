@@ -7,8 +7,6 @@ heroImage: './vyos-vpn-traffic/cover.png'
 
 Want to use your router to send network traffic over a VPN connection, but you don’t want all of your traffic using the VPN? With VyOS, this is easy to setup using Policy Based Routing.
 
-![A worthless meme](./vyos-vpn-traffic/cover.png)
-
 First, some context. Recently I switched my homelab routing from pfSense to VyOS. In the migration, I got almost everything working just like before, with the exception of my rule based PIA setup. So this guide is going to be an explanation of my approach to this problem in VyOS.
 
 # The objective

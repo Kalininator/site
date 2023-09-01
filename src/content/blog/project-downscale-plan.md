@@ -7,8 +7,6 @@ heroImage: './project-downscale-plan/evolution.jpg'
 
 So it is time. I have finally decided to downscale the server situation at home. This will be a big multi-stage project, so I need to lay out end goals and steps forward.
 
-![Evolution of the lab](./project-downscale-plan/evolution.jpg)
-
 As you may have seen in my [previous post](/posts/state-of-the-lab-2020), the state of my homelab has grown rather out of control at home, with a whole server rack being in my flat. I’ve been considering it for some time, but didn’t really have a plan put together for downscaling.
 
 # Why?
