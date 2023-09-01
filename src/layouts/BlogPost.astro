@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import FormattedDate from '../components/FormattedDate.astro'
+import Layout from '../layouts/Layout.astro'
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string }
 
@@ -13,52 +14,13 @@ const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.prop
 <html lang='en'>
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
   </head>
 
-  <body>
-    <Header />
+  <body class='bg-slate-900 text-violet-200'>
+    <Layout>
     <main>
-      <article class="prose">
-        <div class='hero-image'>
+      <article>
+        <div>
           {
             heroImage && (
               <Image
@@ -71,7 +33,7 @@ const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.prop
             )
           }
         </div>
-        <div>
+        <div class='max-w-full prose prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl'>
           <div class='title'>
             <div class='date'>
               <FormattedDate date={pubDate} />
@@ -86,9 +48,10 @@ const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.prop
             <h1>{title}</h1>
             <hr />
           </div>
-          <slot class="prose" />
+          <slot />
         </div>
       </article>
     </main>
+    </Layout>
   </body>
 </html>
