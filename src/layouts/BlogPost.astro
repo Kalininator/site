@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 import BaseHead from '../components/BaseHead.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import Layout from '../layouts/Layout.astro'
@@ -17,29 +17,31 @@ const { title, description, pubDate, heroImage, slug } = Astro.props
 
   <body class='bg-slate-900 text-violet-200'>
     <Layout>
-    <main>
-      <article class='mt-12 mb-32 mx-8'>
-        <div>
-          {
-            heroImage && (
-              <Image
-                width={1020}
-                height={510}
-                src={heroImage}
-                alt=''
-		class='rounded-xl'
-              />
-            )
-          }
-        </div>
-        <div class='max-w-full prose prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl'>
-	  <h1 class='my-4'>{title}</h1>
-	  <FormattedDate date={pubDate} />
-	  <hr class='my-4' />
-          <slot />
-        </div>
-      </article>
-    </main>
+      <main>
+        <article class='mt-12 mb-32 mx-8'>
+          <div>
+            {
+              heroImage && (
+                <Image
+                  width={1020}
+                  height={510}
+                  src={heroImage}
+                  alt=''
+                  class='rounded-xl'
+                />
+              )
+            }
+          </div>
+          <div
+            class='max-w-full prose prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl'
+          >
+            <h1 class='my-4'>{title}</h1>
+            <FormattedDate date={pubDate} />
+            <hr class='my-4' />
+            <slot />
+          </div>
+        </article>
+      </main>
     </Layout>
   </body>
 </html>

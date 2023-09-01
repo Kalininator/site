@@ -1,6 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  plugins: ['prettier'],
+  plugins: ['prettier', 'jsx-a11y'],
   extends: ['plugin:astro/recommended', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
