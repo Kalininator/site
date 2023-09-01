@@ -4,7 +4,7 @@ module.exports = {
   extends: [
     'plugin:astro/recommended',
     'plugin:prettier/recommended',
-    'plugin:jsx-a11y/recommended'
+    'plugin:jsx-a11y/strict'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
