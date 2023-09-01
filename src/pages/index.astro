@@ -1,5 +1,10 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
+import { Image } from 'astro:assets'
+import bgImage from '../assets/background-dim-small.jpg'
+import githubIcon from '../assets/icons/icons8-github.svg'
+import linkedinIcon from '../assets/icons/icons8-linkedin.svg'
+import instagramIcon from '../assets/icons/icons8-instagram.svg'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Layout from '../layouts/Layout.astro'
 ---
@@ -10,9 +15,9 @@ import Layout from '../layouts/Layout.astro'
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class='h-full w-full overflow-hidden'>
-    <img
+    <Image
       class='absolute inset-0 h-screen w-screen object-cover'
-      src='/background-dim-small.jpg'
+      src={bgImage}
       alt='background image'
     />
     <Layout>
@@ -28,25 +33,13 @@ import Layout from '../layouts/Layout.astro'
         </p>
         <div class='flex h-14 flex-row items-center justify-center gap-x-4'>
           <a href='https://www.github.com/kalininator' target='_blank'>
-            <img
-              src='/icons/icons8-github.svg'
-              alt='GitHub'
-              class='h-16 w-16'
-            />
+            <Image src={githubIcon} alt='GitHub' class='h-16 w-16' />
           </a>
           <a href='https://www.linkedin.com/in/kalininator/' target='_blank'>
-            <img
-              src='/icons/icons8-linkedin.svg'
-              alt='LinkedIn'
-              class='h-16 w-16'
-            />
+            <Image src={linkedinIcon} alt='LinkedIn' class='h-16 w-16' />
           </a>
           <a href='https://www.instagram.com/kalininator/' target='_blank'>
-            <img
-              src='/icons/icons8-instagram.svg'
-              alt='Instagram'
-              class='h-16 w-16'
-            />
+            <Image src={instagramIcon} alt='Instagram' class='h-16 w-16' />
           </a>
         </div>
       </div>
