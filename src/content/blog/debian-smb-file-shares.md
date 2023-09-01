@@ -2,7 +2,7 @@
 title: 'Debian SMB File Shares with Active Directory Permissions'
 pubDate: '2021-01-01'
 description: 'Setting up SMB file sharing on Debian with AD permissions.'
-heroImage: '/images/debian-smb-file-shares/share-in-windows.png'
+heroImage: './debian-smb-file-shares/share-in-windows.png'
 ---
 
 When setting up the NAS part of my [new all in one lab build](/posts/threadripper-build-storage), one thing I couldn’t find a simple guide for online was Active Directory permissions with SMB file shares in Debian. Hopefully this guide will help you out with a rather simple approach to the problem.
@@ -43,13 +43,13 @@ The workgroup should be your NetBIOS domain name, your password should be the ho
 For example, my domain has the NetBIOS name of KALININ, the domain name of ad.kalinin.xyz and the domain controller can be found at DC-COLO-01.ad.kalinin.xyz
 After putting this information in, my smb.conf file has the following content:
 
-![smb.conf file](/images/debian-smb-file-shares/smb_config.png)
+![smb.conf file](./debian-smb-file-shares/smb_config.png)
 
 ## Name service configuration
 
 The next step is to modify the name service config file (`/etc/nsswitch.conf`) to use winbind for authentication checking. The main things to change here are the lines for passwd, group, and shadow. These lines should say `files winbind sss`. Below is an example of what my configuration file looked like after the changes.
 
-![/etc/nsswitch.conf](/images/debian-smb-file-shares/nsswitch.png)
+![/etc/nsswitch.conf](./debian-smb-file-shares/nsswitch.png)
 
 ## Joining the domain
 
@@ -57,7 +57,7 @@ At this point, your system should be ready to join your domain. Just make sure y
 The next step is to join the domain using `sudo net ads join -U <username>` where the username is for the account that has permission to domain join.
 In my example, I used my username like so:
 
-![Joining the domain](/images/debian-smb-file-shares/joining-domain.png)
+![Joining the domain](./debian-smb-file-shares/joining-domain.png)
 
 After doing this, if it was successful, you can either reboot, or restart all the appropriate services using the following commands.
 
@@ -80,7 +80,7 @@ sudo chgrp -R {group} {folder path}
 ```
 
 Here is an example I did with the values substituted in. In this example I am creating a folder to keep my backups, and giving the Domain Users group access to it.
-![Creating the folder and setting permissions](/images/debian-smb-file-shares/creating-folder.png)
+![Creating the folder and setting permissions](./debian-smb-file-shares/creating-folder.png)
 
 Once the folder is created and permissions set, we just need to add an entry to /etc/samba/smb.conf so that it is shared. The config section to add will look like the following:
 
@@ -102,8 +102,8 @@ Once the folder is created and permissions set, we just need to add an entry to 
 
 With the values filled out for the backup example, it should look something like this.
 
-![Adding the samba config entry](/images/debian-smb-file-shares/samba-entry.png)
+![Adding the samba config entry](./debian-smb-file-shares/samba-entry.png)
 
 After saving the file, you can now restart the service using `sudo systemctl restart smbd`, and your file share should now be working. Here you can see the newly created share showing up in windows file explorer.
 
-![New file share showing in windows](/images/debian-smb-file-shares/share-in-windows.png)
+![New file share showing in windows](./debian-smb-file-shares/share-in-windows.png)

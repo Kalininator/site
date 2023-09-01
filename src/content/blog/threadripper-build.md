@@ -2,7 +2,7 @@
 title: 'Building a Threadripper all in one homelab'
 description: 'So as part of downscaling the home lab, I needed to build a capable replacement for the existing 3 node vSAN cluster. Here’s a summary of my adventure, and the choices made along the way.'
 pubDate: '2020-06-02'
-heroImage: '/images/threadripper-build/built-angle-view.jpeg'
+heroImage: './threadripper-build/built-angle-view.jpeg'
 ---
 
 So as part of downscaling the home lab, I needed to build a capable replacement for the existing 3 node vSAN cluster. Here’s a summary of my adventure, and the choices made along the way.
@@ -50,18 +50,18 @@ Other things I ordered include a USB to boot ESXi from, a power supply, and a Co
 
 # Things arrived!
 
-![Parts arrived](/images/threadripper-build/things-arrived.jpg)
+![Parts arrived](./threadripper-build/things-arrived.jpg)
 
 At this point I hadn’t acquired any SSDs, so I just pulled the 1TB MX500 SSD out of my Pocket Lab.
 
 Enjoy pics of the build process 🙂
 
 
-![Empty case](/images/threadripper-build/empty-case.jpg)
-![Motherboard](/images/threadripper-build/motherboard.jpeg)
-![CPU socket before adding cooler](/images/threadripper-build/cpu-socket.jpeg)
-![Build side view](/images/threadripper-build/built-side-view.jpeg)
-![Build angle view](/images/threadripper-build/built-angle-view.jpeg)
+![Empty case](./threadripper-build/empty-case.jpg)
+![Motherboard](./threadripper-build/motherboard.jpeg)
+![CPU socket before adding cooler](./threadripper-build/cpu-socket.jpeg)
+![Build side view](./threadripper-build/built-side-view.jpeg)
+![Build angle view](./threadripper-build/built-angle-view.jpeg)
 
 # The cooler debacle
 
@@ -81,23 +81,23 @@ This time I decided to actually spent more than 10 minutes looking into the prob
 
 One benefit of having an air cooler, is it meant I could close up the panels at the top of the case. This might seem petty, but by having the radiator and fans at the top with a water cooler, it meant I couldn’t place items on top of the case, like a switch.
 
-![Bad CPU coverage](/images/threadripper-build/bad-cpu-coverage.jpeg)
+![Bad CPU coverage](./threadripper-build/bad-cpu-coverage.jpeg)
 
 Here is what the CPU looked like when I took off the H115i. Clearly this was never gonna do a good job. Absolutely ridiculous that they even consider this thing as compatible. What a joke.
 
 Obligatory installation pics of the Noctua.
 
-![Build with noctua](/images/threadripper-build/noctua-build.jpg)
+![Build with noctua](./threadripper-build/noctua-build.jpg)
 
 # AMD and temperature readings
 
 Now that the new cooler was in place, I decided to take some new temperature readings.
 
-![High CPU temperature readings](/images/threadripper-build/high-cpu-readings.png)
+![High CPU temperature readings](./threadripper-build/high-cpu-readings.png)
 
 What. How is this still 58C? The weird thing is, the heatsink and pipes felt cold. After extensive googling and research, I decided to install Windows (desperate times indeed) and run AMD’s software to see what that said.
 
-![Temperature readings in Ryzen Master](/images/threadripper-build/ryzen-master.png)
+![Temperature readings in Ryzen Master](./threadripper-build/ryzen-master.png)
 
 Interesting, looks like it’s all good. For a while I thought maybe it was just the motherboard reporting it wrong. Turns out, [AMD add an offset to CPU temperature readings](https://www.guru3d.com/articles-pages/amd-ryzen-threadripper-1950x-review,8.html) as much as 27C for Threadrippers. WTF? So I guess if I ever want to read the temperature, I need to subtract 27 from it.
 
@@ -129,13 +129,13 @@ Anyway, back to my build. I stumbled across some 1.92TB Samsung pm863a listed on
 
 After around a week, they had not arrived, and I was getting worried it was too good to be true. After politely messaging the seller on eBay, I got a text message response.
 
-![Text message](/images/threadripper-build/text-message.png)
+![Text message](./threadripper-build/text-message.png)
 
 Seemed like an honest mistake, and quite funny at that. They arrived shortly after. No worries on my end, I was in no rush as I was using my M.2 SSD temporarily. Later on I ordered 2 more of these SSDs from the guy, the price was just too good. These will most likely replace my current 1TB pm863a’s in colocation.
 
 The 2 SSDs in the server were going to be mirrored, so I needed to acquire a RAID card. The motherboard has RAID capablity, but it is just AMD-RAID, which I wouldn’t even trust to delete my data. The card I ended up choosing was the Perc H710, as it has ample queue depth (1024), some cache, a battery for power outages, and is capable of everything I need.
 
-![Perc H710 installed in case](/images/threadripper-build/raid-card-installed.jpeg)
+![Perc H710 installed in case](./threadripper-build/raid-card-installed.jpeg)
 
 As you can see, I have cleaned up the cabling quite a bit from earlier. This was mainly because I decided to unplug the cables from the front ports, like USB and Audio. These are completely unnecessary for my use case, and were just making the cabling situation messy. The other 2 sticks of memory had arrived by this point, so you can see those there as well.
 

@@ -2,12 +2,12 @@
 title: 'Goodbye pfSense. Hello VyOS'
 description: 'For a while now I’ve been meaning to switch from pfSense to VyOS for my lab routers, and had started playing around in a staging environment. I decided it’s finally time to bite the bullet and migrate the production environment.'
 pubDate: '2020-03-17'
-heroImage: '/images/goodbye-pfsense-hello-vyos/meme.jpg'
+heroImage: './goodbye-pfsense-hello-vyos/meme.jpg'
 ---
 
 For a while now I’ve been meaning to switch from pfSense to VyOS for my lab routers, and had started playing around in a staging environment. I decided it’s finally time to bite the bullet and migrate the production environment.
 
-![A worthless meme](/images/goodbye-pfsense-hello-vyos/meme.jpg)
+![A worthless meme](./goodbye-pfsense-hello-vyos/meme.jpg)
 
 # Why the switch?
 So there were quite a few reasons for me wanting to switch, and some more benefits that I discovered along the way. Here is a quick summary of the reasons I wanted to switch:
@@ -41,24 +41,24 @@ This site happens to be my server that I have in colocation in a datacenter. Thi
 
 All of these requirements had been sitting in my Jira board for quite some time now, and it didn’t help with the motivation to finally migrate.
 
-![Jira tasks](/images/goodbye-pfsense-hello-vyos/jira-tasks.png)
+![Jira tasks](./goodbye-pfsense-hello-vyos/jira-tasks.png)
 
 # The big migration
 So over the weekend, I decided it’s finally time. The first thing I decided to do was figure out how to transition the site in colocation without locking myself out. 
 
 I realised I had already setup a staging environment using one of my other IPs at the colocation that had remote access, so I could reuse that setup to have access to the setup with my main router offline. So I gave my ESXi host a management interface on that network, and made sure I could manage everything through the staging network.
 
-![VMkernel adapters](/images/goodbye-pfsense-hello-vyos/vmkernal-adapters.png)
+![VMkernel adapters](./goodbye-pfsense-hello-vyos/vmkernal-adapters.png)
 
 Once this was done, I ensured that the pfSense VM was set to autostart when the host boots up, and after confirming I shut down the pfSense VM. By doing it this way, I could remotely reboot the server and the old pfSense setup would come back up, allowing me access again.
 
 Success! The transition for the colocation site went off without any problems, and minimal downtime for that site. Not bad at all.
 
-![Uptime monitor 1](/images/goodbye-pfsense-hello-vyos/uptime-monitor-1.png)
+![Uptime monitor 1](./goodbye-pfsense-hello-vyos/uptime-monitor-1.png)
 
 Next up, the home site. This was a much easier process, as I had local access to all the management stuff without worrying about locking myself out. This generally worked out quite well too, with not a lot of downtime here either.
 
-![Uptime monitor 2](/images/goodbye-pfsense-hello-vyos/uptime-monitor-2.png)
+![Uptime monitor 2](./goodbye-pfsense-hello-vyos/uptime-monitor-2.png)
 
 After these were done, it was time to configure the site to site connections. With pfSense, these were all done with OpenVPN, but since VyOS has built in WireGuard support, I went with that for all the connections I could. I found the config much simpler implement, as the authentication was just public/private keys.
 

@@ -2,12 +2,12 @@
 title: 'Homelab in your pocket'
 description: 'So I was just browsing reddit, and stumbled across this thing, the Fitlet 2. At first it just looked like a heatsink with antennas, so I had to look further. Turns out the specs of these things are pretty good for their form factor. This got me thinking, could this be a super portable VM host and mostly complete homelab site?'
 pubDate: '2020-03-27'
-heroImage: '/images/homelab-in-your-pocket/fitlet-final.jpg'
+heroImage: './homelab-in-your-pocket/fitlet-final.jpg'
 ---
 
 So I was just browsing reddit, and stumbled across this thing, the Fitlet 2. At first it just looked like a heatsink with antennas, so I had to look further. Turns out the specs of these things are pretty good for their form factor. This got me thinking, could this be a super portable VM host and mostly complete homelab site?
 
-![The final result](/images/homelab-in-your-pocket/fitlet-final.jpg)
+![The final result](./homelab-in-your-pocket/fitlet-final.jpg)
 
 So first I’ll summarise the end result. A fully fledged VM host, with a router VM that is a Access Point, WiFi client, and 4G modem. With plenty of room for more VMs and maybe a k8s cluster.
 
@@ -44,39 +44,39 @@ For the M.2 drive I went for a 1TB MX500 SSD. While I could most likely get away
 
 So after waiting around a week for the Fitlet2 to arrive, as well as the SSD, I had everything needed to kick this project off. It was nice to see this thing came with different plug connectors, as I plan on taking this with me when I go on holidays.
 
-![Included items](/images/homelab-in-your-pocket/fitlet-included-things.jpg)
+![Included items](./homelab-in-your-pocket/fitlet-included-things.jpg)
 
 One thing I noticed when researching this device is the lack of information on how all the pieces fit together, so I was really interested in taking it apart into little pieces. Heres are some photos of the parts and how they fit together.
 
 
-![Everything dismantled](/images/homelab-in-your-pocket/everything-dismantled.jpg)
-![Top side with RAM](/images/homelab-in-your-pocket/top-side-with-ram.jpg)
-![Bottom side without any modules installed](/images/homelab-in-your-pocket/bottom-side.jpg)
-![WiFi module and M.2 SSD](/images/homelab-in-your-pocket/wifi-module.jpg)
-![4G Modem](/images/homelab-in-your-pocket/4G-modem.jpg)
+![Everything dismantled](./homelab-in-your-pocket/everything-dismantled.jpg)
+![Top side with RAM](./homelab-in-your-pocket/top-side-with-ram.jpg)
+![Bottom side without any modules installed](./homelab-in-your-pocket/bottom-side.jpg)
+![WiFi module and M.2 SSD](./homelab-in-your-pocket/wifi-module.jpg)
+![4G Modem](./homelab-in-your-pocket/4G-modem.jpg)
 
 # Installation
 
 So the first step for installation was setting up VMWare ESXi, as this is my hypervisor of choice. This will let me integrate it with the other servers I have easily, and manage the configuration with Terraform. This was a very standard procedure, and went smoothly. I decided to install it onto a Cruzer Fit USB, as I’d used these before for lots of installations, and had some lying around.
 
-![ESXi console](/images/homelab-in-your-pocket/esxi-console.jpg)
+![ESXi console](./homelab-in-your-pocket/esxi-console.jpg)
 
 Looking at the specs in vCenter, you really wouldn’t think this device is as small as it is.
 
-![Specs shown in vCenter](/images/homelab-in-your-pocket/vcenter-specs.png)
+![Specs shown in vCenter](./homelab-in-your-pocket/vcenter-specs.png)
 
 # Host networking
 
 My plan for the host networking was fairly straight forward. Since this device had 2 gigabit NICs, one would be used as a WAN connection when that is available, and the other would be the LAN connection, with any other VLANs tagged in case I needed to access them.
 
-![ESXi host networking](/images/homelab-in-your-pocket/host-networking.png)
+![ESXi host networking](./homelab-in-your-pocket/host-networking.png)
 
 # VyOS Router
 The core part of this setup was the router VM. This would handle all the traffic in and out of the system, as well as the access point. For the OS, I decided to go with VyOS, as I’d recently switched to that for my other 2 sites and it performs really well with limited hardware. 
 
 The VM would have 2 NICs. One would be on the WAN switch, and another would be a VLAN trunk for the internal network, allowing it to access all internal VLANs over one interface. It also needed to WiFi card, suppied via PCIe passthrough.
 
-![VyOS VM Settings](/images/homelab-in-your-pocket/vyos-vm.png)
+![VyOS VM Settings](./homelab-in-your-pocket/vyos-vm.png)
 
 # Connectivity
 To connect this up to the rest of the lab, I set up a WireGuard tunnel from this little host to my server in colocation. Thanks to my existing BGP setup, all I needed to do was advertise the new networks and the routes were all populated across my other 2 sites, and everything could talk freely.
@@ -91,7 +91,7 @@ The main issue I ran into with the setup was getting VyOS to use the WiFi card a
 
 At the time of writing the COVID-19 panic is in full swing, so I don’t have any bananas for scale. So here are some other items to help you compare.
 
-![Fitlet with things for scale](/images/homelab-in-your-pocket/fitlet-scale.jpg)
+![Fitlet with things for scale](./homelab-in-your-pocket/fitlet-scale.jpg)
 
 # What’s Next?
 

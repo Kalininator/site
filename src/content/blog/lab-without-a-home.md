@@ -2,7 +2,7 @@
 title: 'Lab Without a Home'
 pubDate: '2022-12-30'
 description: 'Preparing the homelab for full time travelling, and simplifying a lot'
-heroImage: '/images/lab-without-a-home/old-colo.jpeg'
+heroImage: './lab-without-a-home/old-colo.jpeg'
 ---
 
 It's been a while since the last post, so I thought it was time for a lab update.
@@ -26,7 +26,7 @@ I accepted as this seemed very reasonable, expecting him to bring it in a car or
 Nope. Man carried the thing on the tube, and *borrowed* an M&S trolley before meeting me half way
 where I had my own trolley to get it off him. Truly feel sorry for the guy.
 
-![Old colo server on a trolley](/images/lab-without-a-home/old-colo.jpeg)
+![Old colo server on a trolley](./lab-without-a-home/old-colo.jpeg)
 
 # The New Colo
 
@@ -40,7 +40,7 @@ The specs are mostly the same as before, but with a few additions and relocation
 * **120GB boot SSD**
 * **Nvidia A2000** GPU (New addition)
 
-![ESXi Specs screenshot](/images/lab-without-a-home/esx-specs.png)
+![ESXi Specs screenshot](./lab-without-a-home/esx-specs.png)
 
 The main change here is the introduction of the A2000.
 It's a bit pricey, but it has been very good at Plex transcoding for me.
@@ -99,7 +99,7 @@ Full hardware list for home:
 * **TP-Link EAP620 HD** - Had this AP since moving in and it's been great if not a bit overkill
 * Silvercrest **Zigbee Hub** - This connects all my smart devices
 
-![Flat setup](/images/lab-without-a-home/home-setup.jpeg)
+![Flat setup](./lab-without-a-home/home-setup.jpeg)
 
 There's really not a lot to it here and when I move out, it will all just get thrown in a box for the future.
 

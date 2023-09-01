@@ -2,14 +2,14 @@
 title: 'Project Downscale: Migration'
 description: 'So my new home server was ready to take over from the existing server rack. Here is how I went about migrating everything over with the least downtime for vital services.'
 pubDate: '2020-08-17'
-heroImage: '/images/project-downscale-migration/stuff-to-sell.png'
+heroImage: './project-downscale-migration/stuff-to-sell.png'
 ---
 
 
 If you haven't read my previous posts, I recently [built a new home server](/posts/threadripper-build) with the goal of completely replacing my server rack. This server would completely replace my existing power-hungry vSAN cluster, as well as [replacing my NAS](/posts/threadripper-build-storage). This is what the newly built setup looks like, for the most part, as well as the existing rack for comparison.
 
-![Rack](/images/project-downscale-migration/rack.jpg)
-![Tower](/images/project-downscale-migration/tower.png)
+![Rack](./project-downscale-migration/rack.jpg)
+![Tower](./project-downscale-migration/tower.png)
 
 As you can see, it's quite a compact setup, with just one tower, a switch, and an access point. You may be wondering how much of a downgrade this is when it comes to performance, memory, and storage. Well, not actually as much as you would think. Here are the specs of the new tower server:
 
@@ -28,7 +28,7 @@ One of the main things I did to help ease this migration was to clean up my NAS 
 
 As you can see, the data migration still took quite a while.
 
-![Migration](/images/project-downscale-migration/migration.png)
+![Migration](./project-downscale-migration/migration.png)
 
 Before the switch over to the new setup, I had to setup some core VMs to make sure I was ready to go on the new setup. The core VMs I set up were:
 
@@ -44,21 +44,21 @@ After all this was set up, and the data copied across, I switched over to using 
 
 Now came the fun part. It was time to start tearing apart the old rack. The main thing to consider here was that I needed to wipe all of my drives properly. This would take some time, and for this reason, I left 2 servers running so that they could do the job. This is what the rack looked like after all the other servers were removed, and just these 2 were left. You can see the new build in the bottom right of the picture.
 
-![Mostly empty rack](/images/project-downscale-migration/mostly-empty-rack.png)
+![Mostly empty rack](./project-downscale-migration/mostly-empty-rack.png)
 
 To wipe the drives, I used [PartedMagic](https://partedmagic.com/). It's a really nice tool, that can boot from an ISO and load into RAM. It has a lot of tools for wiping drives and getting stats off them. The wiping took quite a while with my 4TB drives, and was probably the most time consuming part of this migration.
 
-![Nwipe statistics](/images/project-downscale-migration/nwipe.png)
+![Nwipe statistics](./project-downscale-migration/nwipe.png)
 
 After all was done, I had a huge pile of equipment in my room, all of which needed to be sold off somehow.
 
-![All hardware sitting on floor](/images/project-downscale-migration/stuff-to-sell.png)
+![All hardware sitting on floor](./project-downscale-migration/stuff-to-sell.png)
 
 ## Backup server
 
 One of the things I still needed to find a replacement for was my backup server. Before, it was a 1U server with 4x2TB drives for storage. With the new setup, I ended up going with an ODroid HC2. This little device is tiny, low power, and can support a single 3.5" HDD. I went with an 8TB drive, as that made sense for capacity and pricing. Yes, I know, there is no drive redundancy here. But this will not be the only copy of the data, there will also be backups to colocation, and maybe cloud as well. So I think the risk is perfectly acceptable.
 
-![Odroid HC2](/images/project-downscale-migration/odroid.png)
+![Odroid HC2](./project-downscale-migration/odroid.png)
 
 ## UPS
 
@@ -72,12 +72,12 @@ One of the things that needed replacing, was my top-level router. The purpose of
 
 Here are some before and after pictures of the lab cupboard.
 
-![Rack](/images/project-downscale-migration/rack.jpg)
-![Empty cupboard](/images/project-downscale-migration/cupboard-after.jpeg)
+![Rack](./project-downscale-migration/rack.jpg)
+![Empty cupboard](./project-downscale-migration/cupboard-after.jpeg)
 
 As you can see, I've acquired a whole new cupboard I can use. The servers at the bottom belong to my flatmate and are not part of my new setup. Here is what the new lab looks like now, with both the backup server and the UPS.
 
-![New lab in cupboard](/images/project-downscale-migration/new-lab.png)
+![New lab in cupboard](./project-downscale-migration/new-lab.png)
 
 The power usage of the new lab is so much lower than the previous one, at a measly 130W. I imagine this will go up as I deploy more VMs, but it is still a massive difference. My power bill went down £70 a month after the migration. The other thing that is really noticeable is the noise. There isn't any!
 

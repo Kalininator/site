@@ -2,7 +2,7 @@
 title: 'State of the lab 2020'
 description: 'Over the last few years, my homelab has gone from zero to being out of control. Having a homelab allows me to learn a lot of skills such as networking and managing infrastructure for virtualised workloads. Here I will try and summary the lab hardware, and the software being used.'
 pubDate: '2020-05-16'
-heroImage: '/images/state-of-the-lab-2020/vcenter-overview.png'
+heroImage: './state-of-the-lab-2020/vcenter-overview.png'
 ---
 
 Over the last few years, my homelab has gone from zero to being out of control. Having a homelab allows me to learn a lot of skills such as networking and managing infrastructure for virtualised workloads. Here I will try and summary the lab hardware, and the software being used.
@@ -13,7 +13,7 @@ The “home”lab consists of 2 sites. One is at home, and the other is in a dat
 
 The home section of the lab consists of two main components. The first is a 3 node vSAN cluster, that I use for hosting all the VMs, and VM storage. The second part is the NAS, which has ample storage for all of my requirements.
 
-![Startech rack](/images/state-of-the-lab-2020/startech-rack.jpg)
+![Startech rack](./state-of-the-lab-2020/startech-rack.jpg)
 
 The vSAN cluster is comprised of 3 identical nodes. They are all HP DL380p Gen8 rack mount servers, and their specs are as follow:
 
@@ -24,7 +24,7 @@ The vSAN cluster is comprised of 3 identical nodes. They are all HP DL380p Gen8 
 * SD card (Boot disk)
 * 2x 10Gb SFP+ NICs
 
-![vCenter screenshot of DC-HOME](/images/state-of-the-lab-2020/dc-home.png)
+![vCenter screenshot of DC-HOME](./state-of-the-lab-2020/dc-home.png)
 
 The main NAS is also a DL380p Gen8 server, but a 12x 3.5″ bay variant, running freenas with 12x 4TB disks. Ideally I would migrate this to more dense disks, like 6x14TB or similar, but that is a problem for a future time.
 
@@ -42,7 +42,7 @@ For the colocated server, I have a 2U slot in a datacenter in central London, wi
 * 2x 960GB pm863a
 * 2x 8TB WD Red
 
-![vCenter screenshot of DC-COLO](/images/state-of-the-lab-2020/dc-colo.png)
+![vCenter screenshot of DC-COLO](./state-of-the-lab-2020/dc-colo.png)
 
 This server is a VM host, and runs all the things I would need at a remote site, like a router/firewall, DNS, DHCP, etc. The 2 SSDs are mirrored and used for VM storage, while the 2 HDDs are mirrored and used for bulk storage.
 
@@ -50,7 +50,7 @@ This server is a VM host, and runs all the things I would need at a remote site,
 
 As you may have guessed from me mentioning the vSAN cluster, my VM hosts are all running VMware ESXi. This allows me to do lots of fun stuff like clustering, high availablity, live migrations, and so on. I centrally manage all the hosts with vCenter, which also allows me to control the configuration using Terraform.
 
-![vCenter overview](/images/state-of-the-lab-2020/vcenter-overview.png)
+![vCenter overview](./state-of-the-lab-2020/vcenter-overview.png)
 
 Resource summary for whole lab
 One of the core things I run across the network is Windows Active Directory. This manages DNS, DHCP, and SSO, among other things. The main reasons for using it are the SSO and GPO. GPO makes managing any Windows VMs a breeze, and the single sign-on is very handy when handling file permissions for my storage provided by FreeNAS.

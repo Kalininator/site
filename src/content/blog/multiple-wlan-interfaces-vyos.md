@@ -2,7 +2,7 @@
 title: 'Multiple wireless interfaces in VyOS'
 description: 'During the setup of a project of mine, I ran into an issue with VyOS where I couldn’t figure out how to setup multiple wireless interfaces. So after some digging around online and some help from a few people, I figured out a way to get it up and running.'
 pubDate: '2020-04-04'
-heroImage: '/images/multiple-wlan-interfaces-vyos/try-add-wlan.png'
+heroImage: './multiple-wlan-interfaces-vyos/try-add-wlan.png'
 ---
 
 During the setup of a project of mine, I ran into an issue with VyOS where I couldn’t figure out how to setup multiple wireless interfaces. So after some digging around online and some help from a few people, I figured out a way to get it up and running.
@@ -15,11 +15,11 @@ I found that in VyOS, there would be an interface called wlan0 that worked perfe
 
 I did some investigation, and found out about the iw command in linux, which is used to interact with wireless interfaces. Digging around with this command I found the following information about the WiFi card. This indicated to me it could support being both an access point and a client simultaneously.
 
-![phy0 info](/images/multiple-wlan-interfaces-vyos/phy0-info.png)
+![phy0 info](./multiple-wlan-interfaces-vyos/phy0-info.png)
 
 When trying to add `wlan1` using VyOS config, I was getting this error as the interface was not defined.
 
-![Trying to add second wlan](/images/multiple-wlan-interfaces-vyos/try-add-wlan.png)
+![Trying to add second wlan](./multiple-wlan-interfaces-vyos/try-add-wlan.png)
 
 It seemed like I would need to manually add this interface somehow.
 
