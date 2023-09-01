@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro'
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string }
 
-const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.props
+const { title, description, pubDate, heroImage, slug } = Astro.props
 ---
 
 <html lang='en'>
@@ -33,20 +33,9 @@ const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.prop
           }
         </div>
         <div class='max-w-full prose prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl'>
-          <div class='title'>
-            <div class='date'>
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class='last-updated-on'>
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-            <h1>{title}</h1>
-            <hr />
-          </div>
+	  <h1 class='my-4'>{title}</h1>
+	  <FormattedDate date={pubDate} />
+	  <hr class='my-4' />
           <slot />
         </div>
       </article>
