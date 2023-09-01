@@ -5,6 +5,6 @@ import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kalinin.dev',
+  site: 'https://www.kalinin.dev',
   integrations: [mdx(), sitemap(), tailwind()]
 })
