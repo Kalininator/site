@@ -1,0 +1,58 @@
+---
+title: 'Project Downscale: The Plan'
+description: 'So it is time. I have finally decided to downscale the server situation at home. This will be a big multi-stage project, so I need to lay out end goals and steps forward.'
+pubDate: '2020-05-19'
+heroImage: './project-downscale-plan/evolution.jpg'
+---
+
+So it is time. I have finally decided to downscale the server situation at home. This will be a big multi-stage project, so I need to lay out end goals and steps forward.
+
+As you may have seen in my [previous post](/posts/state-of-the-lab-2020), the state of my homelab has grown rather out of control at home, with a whole server rack being in my flat. I’ve been considering it for some time, but didn’t really have a plan put together for downscaling.
+
+# Why?
+
+There are a few key reasons why I want to downscale at home. You may think the main reason to downscale would be the power bill. While it is a very good reason, it is not the primary problem. The main issue with having a server rack is the noise and heat output. While I have always found a place to put it where the noise isn’t a big problem, I was always very limited when looking for places to live. In the last three flats I moved into, so many options were ruled out because they did not have a suitable location for the server rack.
+
+When it comes to noise, most of the time it is not a problem, as the fans would be running at a fraction of their capacity. However, these are enterprise servers, and will automatically ramp up fans according to their needs, with little regard to the noise output. While this can be annoying, it is understandable, as they are designed to be ran in datacenters, where noise is not an issue.
+
+# Goal and requirements
+
+For a while I’ve been thinking of ways to downscale, without making any compromises compared to my current setup. I’ve come to realise that this isn’t really an option unless I dish out a lot of money. 2 options I looked at are a cluster of Microserver Gen10 Plus, or a Dell VRTX with 4 blades. Both of these would be quite expensive. All these limitations I was placing on myself, such as vSAN and IPMI, were just stopping me from being able to downscale for a long time. So I realised that I needed to lower my expectations, and accept some compromises.
+
+The goal I decided on was fairly simple. *Downscale to the point where I don’t need a server rack*.
+
+# Current components and their replacements
+
+## vSAN Cluster
+
+By far the biggest part of the current setup, the vSAN cluster currently consists of 3 Rack servers, pulling approximately 100W each. I realised I would have to compromise here, and do away with the host redundancy, condensing the setup into a single server.
+
+The current cluster has 6 CPUs total across 3 nodes, and 96GB RAM in each node. This means I will need a pretty powerful CPU to replace it, as well as a good amount of RAM. However, I could definitely downscale these specs. By moving more of my services to the server in colocation, The RAM and CPU requirements at home will drop.
+
+## NAS
+
+Currently, the NAS has 12x 4TB drives in the pool. To save power, and for future expansion, I can reconfigure this to use higher density drives. With 4x 14TB drives, I would only be losing a few TBs of usable capacity. And with 6x 14TB, I would have more capacity than currently. I would then be able to migrate the storage to it’s own build, or into the ESXi box. If this is possible, I would have 1 tower for almost everything, but this would raise the RAM requirements for that server.
+
+## Backup NAS
+
+I can migrate the backup disks back to their old host, which is a Gen 7 Microserver. However, I am considering doing away with the local backups altogether, and doing backups to the bulk storage in colocaiton instead. Either way, this would be an easy replacement that I can figure out later.
+
+## WAN Router
+
+Currently, I am living with my mate in the flat, and we have completely separate networks, with different Public IPs. To do this, we currently have a DL360p Gen8 running a pfSense VM. Our ISP provides us with a /29 of public IPv4. The pfSense VM then splits those IPs up, giving each of us 3 IPs to use. I can easily swap this rack server out for something like an Edgerouter-X, or as VyOS/pfSense box.
+
+# Stages
+
+Doing all of this in one go would be a huge expense. The new VM host would have to be quite powerful, and would easily be over £1000 by itself. Then to reconfigure the storage, I would need to buy at least 4 14TB drives up front, which is at least another £1000 by itself. So I have decided to do this migration in a few steps, allowing me to sell things and recuperate funds.
+
+## Step 1: Decomission vSAN Cluster
+
+This is going to be the first step, as this is the core of the lab. I can fairly easily swap it out without disruption to the rest of the network by utilising vMotion. Since I might be moving the storage into this box as well, it would not make sense to migrate the storage first.
+
+## Step 2: Migrate NAS
+
+In this step, I will either migrate the storage into the ESXi box, or make a second whitebox build to host the storage. This will involve buying new drives, moving the data across, and selling the old drives.
+
+## Other Tasks
+
+I have a few other tasks that need to be done as well, but they are not dependent on previous steps, so I will do them when it is convenient. These steps are to migrate the WAN splitter, and to decide how I want to deal with the backup situation. I will most likely keep a local backup box, as this lets me store VM backups in a sensible location.

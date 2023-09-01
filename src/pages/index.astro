@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import Layout from '../layouts/Layout.astro'
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class='h-full w-full overflow-hidden'>
+    <img
+      class='absolute inset-0 h-screen w-screen object-cover'
+      src='/background-dim-small.jpg'
+      alt='background image'
+    />
+    <Layout>
+      <div
+        class='relative z-10 my-[30vh] flex w-full h-full flex-col items-center justify-center gap-y-12'
+      >
+        <h1 class='text-center font-gugi text-7xl text-[#f4bc4c]'>
+          Alex Kalinin
+        </h1>
+        <p class='w-3/4 text-center text-[#f4bc4c]'>
+          Software engineer, travelling the world. Blog mostly about homelab,
+          guides, and projects.
+        </p>
+        <div class='flex h-14 flex-row items-center justify-center gap-x-4'>
+          <a href='https://www.github.com/kalininator' target='_blank'>
+            <img
+              src='/icons/icons8-github.svg'
+              alt='GitHub'
+              class='h-16 w-16'
+            />
+          </a>
+          <a href='https://www.linkedin.com/in/kalininator/' target='_blank'>
+            <img
+              src='/icons/icons8-linkedin.svg'
+              alt='LinkedIn'
+              class='h-16 w-16'
+            />
+          </a>
+          <a href='https://www.instagram.com/kalininator/' target='_blank'>
+            <img
+              src='/icons/icons8-instagram.svg'
+              alt='Instagram'
+              class='h-16 w-16'
+            />
+          </a>
+        </div>
+      </div>
+    </Layout>
+  </body>
+</html>
