@@ -31,10 +31,10 @@ const posts = (await getCollection('blog')).sort(
                     class='object-cover h-full w-full inset-0 mb-2 rounded-xl'
                   />
                 </div>
-                <h3 class='text-amber-500 m-0 leading-none text-xl'>
+                <h3 class='text-main m-0 leading-none text-xl'>
                   {post.data.title}
                 </h3>
-                <p class='text-violet-400 m-0'>
+                <p class='text-aux1 m-0'>
                   <FormattedDate date={post.data.pubDate} />
                 </p>
               </a>

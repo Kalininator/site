@@ -12,10 +12,10 @@ const { title, description, pubDate, heroImage, slug } = Astro.props
 
 <html lang='en'>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} image={heroImage.src} />
   </head>
 
-  <body class='bg-slate-900 text-violet-200'>
+  <body class='bg-slate-900 text-aux1'>
     <Layout>
       <main>
         <article class='mt-12 mb-32 mx-8'>
@@ -33,10 +33,10 @@ const { title, description, pubDate, heroImage, slug } = Astro.props
             }
           </div>
           <div
-            class='max-w-full prose prose-invert prose-violet prose-headings:text-amber-500 prose-p:text-violet-300 prose-strong:text-violet-400 prose-code:text-violet-300 prose-ul:text-violet-200 prose-img:rounded-xl'
+            class='max-w-full prose prose-invert prose-violet prose-headings:text-main prose-p:text-aux1 prose-strong:text-aux1 prose-code:text-aux1 prose-ul:text-aux1 prose-img:rounded-xl'
           >
-            <h1 class='my-4'>{title}</h1>
-            <FormattedDate date={pubDate} />
+            <h1 class='my-4 text-5xl'>{title}</h1>
+            <div class='text-main'><FormattedDate date={pubDate} /></div>
             <hr class='my-4' />
             <slot />
           </div>

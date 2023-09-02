@@ -9,6 +9,12 @@ module.exports = {
         // sans: ['var(--font-source-sans)'],
         gugi: ['Gugi', ...defaultTheme.fontFamily.sans]
         // jetbrains: ['var(--font-jetbrains)']
+      },
+      colors: {
+        bg: '#1f2c8a',
+        main: '#f4bd53',
+        aux1: '#24c3ad',
+        aux2: '#3f3654'
       }
     }
   },
