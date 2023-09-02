@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // sans: ['var(--font-source-sans)'],
-        gugi: ['Gugi', ...defaultTheme.fontFamily.sans]
-        // jetbrains: ['var(--font-jetbrains)']
+        sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
+        gugi: ['Gugi', ...defaultTheme.fontFamily.sans],
+        jetbrains: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
       },
       colors: {
         bg: '#1f2c8a',
